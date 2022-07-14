@@ -1,0 +1,9 @@
+.navigation {
+    background: #33B5E5;
+}
+
+a, span {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}

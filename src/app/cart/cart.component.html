@@ -1,0 +1,21 @@
+<div class="container-fluid" class="cusMargins">
+    <div class="row text-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-4" style="margin-bottom: 10px;">
+        <app-product curView="'cart'" *ngFor="let product of cartProducts" [product]="product" [productAmount]="product.amount" (totalPrice)="getFinalPrice($event)"></app-product>
+    </div>
+    <div class="col-md-6 " style="text-align: left; margin-bottom: 10px; width: 450px;">
+        <form #form="ngForm" (ngSubmit)="sumitForm()">
+            <label >Full name</label>
+            <input class="form-control" name="clientName" required minlength="5" maxlength="32" [(ngModel)]="clientName">
+            <label >Address</label>
+            <input class="form-control" name="clientAddress" required minlength="5" maxlength="32" [(ngModel)]="clientAddress">
+            <label >Credit card number</label>
+            <input type="number" required class="form-control" name="clientCreditCardNumber" [(ngModel)]="clientCreditCardNumber">
+            <span>we'll never share your payment details with anyone else</span>
+            <p><input [disabled]="form.invalid" class="btn btn-primary" type="submit" value="Submit"></p>
+        </form>
+        <p style="font-weight: bold;">Total invoice Price is: {{finalSum}}</p>
+    </div>
+</div>
+  </div>

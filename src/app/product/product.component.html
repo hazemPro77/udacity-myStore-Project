@@ -1,0 +1,14 @@
+
+<p ><img src="{{product.url}}" (click)="getProductDetails(product)"  class="col-xs-2 col-sm-4 col-md-6 margin1"></p>
+<p>{{product.name}}</p>
+<p *ngIf="curView !== ''">{{product.description}}</p>
+<p>${{product.price}}</p>
+<p *ngIf="curView !== ''"><span>Amount: </span><input [disabled]="true" type="number" name="productAmount"
+[(ngModel)]="productAmount" style="width:50px;"></p>
+<p><select *ngIf="curView === ''" class="btn btn-secondary dropdown-toggle" name="num" [(ngModel)]="selectednum"  (ngModelChange)="showValue()">
+<option *ngFor="let num of productsNo" [ngValue]="num" >{{num}}</option>
+</select>
+</p>
+<button *ngIf="curView === ''" class="btn btn-primary" style="margin-bottom: 20px;" (click)="addToCart(product)">add to cart</button>
+<button *ngIf="curView !== ''" class="btn btn-primary" (click)="removeProduct(product)">Remove from the cart</button>
+<p *ngIf="curView !== ''">Total: {{productAmount*product.price}}</p>
